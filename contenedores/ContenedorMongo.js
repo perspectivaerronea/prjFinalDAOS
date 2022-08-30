@@ -26,7 +26,8 @@ export class ContenedorMongo {
 
     async abrir() {
         try {
-            this.connection = await mongoose.connect("mongodb://127.0.0.1:27017/ecommerce", { useNewUrlParser: true, useUnifiedTopology: true });
+            // this.connection = await mongoose.connect("mongodb://127.0.0.1:27017/ecommerce", { useNewUrlParser: true, useUnifiedTopology: true });
+            this.connection =  await mongoose.connect(process.env.MONGO + '/ecommerce', { useNewUrlParser: true, useUnifiedTopology: true });
             return await this.tabla.find();
         }
         catch (err) {
